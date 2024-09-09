@@ -3,7 +3,7 @@
 // Multihash cid = Cid.encode(new File("file.txt"));
 
 process PUBLISH_CID {
-    publishDir "${result_file.digest('SHA-256')}/", mode: "copy"
+    publishDir "results/", mode: "copy", saveAs: { it.digest('SHA-256') + it }
 
     output:
     path "sample.txt", emit: result_file
