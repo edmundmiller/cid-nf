@@ -3,7 +3,7 @@
 // Multihash cid = Cid.encode(new File("file.txt"));
 
 process PUBLISH_CID {
-    publishDir "results/", mode: "copy", saveAs: { it.digest('SHA-256') + it }
+    publishDir "results/", mode: "copy", saveAs: { "ipfs add -n $it".execute().text + it }
     // TODO saveAs: { it.cid('v1') + it }
 
 
